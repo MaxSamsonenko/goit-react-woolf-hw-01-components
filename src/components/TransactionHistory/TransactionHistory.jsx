@@ -1,10 +1,6 @@
 import { Table, Th, Tr, Td } from './TransactionHistory.styled';
 
 export const TransactionHistory = ({ items }) => {
-  function firstCharToUpperCase(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
   return (
     <Table>
       <thead>
@@ -19,7 +15,7 @@ export const TransactionHistory = ({ items }) => {
         {items.map(({ id, type, amount, currency }) => {
           return (
             <Tr key={id}>
-              <Td>{firstCharToUpperCase(type)}</Td>
+              <Td>{type}</Td>
               <Td>{amount}</Td>
               <Td>{currency}</Td>
             </Tr>

@@ -20,4 +20,7 @@ export const Td = styled.td`
   text-align: center;
   font-size: 14px;
   padding: 5px;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;

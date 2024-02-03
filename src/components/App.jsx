@@ -12,10 +12,8 @@ import transactions from './TransactionHistory/transactions.json';
 export const App = () => {
   function shouldForwardProp(propName, target) {
     if (typeof target === 'string') {
-      // For HTML elements, forward the prop if it is a valid HTML attribute
       return isPropValid(propName);
     }
-    // For other elements, forward all props
     return true;
   }
   return (
@@ -52,7 +50,6 @@ export const App = () => {
         <p style={{ marginTop: '30px', marginBottom: '30px' }}>
           4 - Історія транзакцій
         </p>
-
         <TransactionHistory items={transactions} />
       </div>
     </StyleSheetManager>

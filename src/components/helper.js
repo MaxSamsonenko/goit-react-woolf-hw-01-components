@@ -22,9 +22,13 @@ function getContrast(f, b) {
   return (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
 }
 
-export default function getTextColor(bgColor) {
+export function getTextColor(bgColor) {
   const whiteContrast = getContrast(bgColor, '#ffffff');
   const blackContrast = getContrast(bgColor, '#000000');
 
   return whiteContrast > blackContrast ? '#ffffff' : '#000000';
+}
+
+export function setBgColor() {
+  return Math.floor(Math.random() * 16777215).toString(16);
 }

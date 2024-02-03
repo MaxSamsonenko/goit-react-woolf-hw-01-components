@@ -6,7 +6,7 @@ import {
   Label,
   Percentage,
 } from './Statistics.styled';
-import getTextColor from './helper.js';
+import { getTextColor, setBgColor } from '../helper.js';
 
 export const Statistics = ({ title, stats }) => {
   return (
@@ -15,8 +15,7 @@ export const Statistics = ({ title, stats }) => {
 
       <List>
         {stats.map(({ id, label, percentage }) => {
-          const statBgColor = Math.floor(Math.random() * 16777215).toString(16);
-          const textColor = getTextColor(statBgColor);
+          const statBgColor = setBgColor();
           return (
             <ListItem
               key={id}
@@ -24,8 +23,10 @@ export const Statistics = ({ title, stats }) => {
                 backgroundColor: `#${statBgColor}`,
               }}
             >
-              <Label style={{ color: `${textColor}` }}>{label}</Label>
-              <Percentage style={{ color: `${textColor}` }}>
+              <Label style={{ color: `${getTextColor(statBgColor)}` }}>
+                {label}
+              </Label>
+              <Percentage style={{ color: `${getTextColor(statBgColor)}` }}>
                 {percentage}
               </Percentage>
             </ListItem>
